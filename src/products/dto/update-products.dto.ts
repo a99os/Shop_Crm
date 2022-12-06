@@ -3,7 +3,7 @@ import { IsOptional, IsNumber, IsString } from 'class-validator';
 export class UpdateProductsDto {
   @IsOptional()
   @IsNumber()
-  readonly sub_category_id: string;
+  readonly sub_category_id: number;
   @IsOptional()
   @IsString()
   readonly model: string;
@@ -15,5 +15,5 @@ export class UpdateProductsDto {
   readonly color: string;
   @IsOptional()
   @IsString()
-  readonly price: string;
+  readonly price: number;
 }
