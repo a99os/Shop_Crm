@@ -1,4 +1,5 @@
 import {
+  BelongsTo,
   Column,
   DataType,
   ForeignKey,
@@ -54,4 +55,7 @@ export class Products extends Model<Products, ProductsCreateAttr> {
     allowNull: false,
   })
   price: number;
+
+  @BelongsTo(() => SubCategory)
+  subcategories: SubCategory;
 }
