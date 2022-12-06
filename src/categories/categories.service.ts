@@ -65,7 +65,7 @@ export class CategoriesService {
         HttpStatus.NOT_FOUND,
       );
     }
-    await this.categoryRepository.destroy({ where: { id } });
+    await this.categoryRepository.destroy({ where: { category_id: id } });
     return category;
   }
 }
