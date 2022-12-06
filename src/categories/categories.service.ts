@@ -1,5 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
+import { SubCategory } from '../sub-categories/sub-category.model';
 import { Categories } from './categories.model';
 import { CreateCategoryDto } from './dto/create-category.dto';
 
@@ -20,12 +21,20 @@ export class CategoriesService {
   }
 
   async getAll() {
-    return await this.categoryRepository.findAll({ include: { all: true } });
+    return await this.categoryRepository.findAll({
+      include: {
+        model: SubCategory,
+        attributes: ['sub_category_id', 'sub_category_name'],
+      },
+    });
   }
 
   async getOne(id: number) {
     const category = await this.categoryRepository.findByPk(id, {
-      include: { all: true },
+      include: {
+        model: SubCategory,
+        attributes: ['sub_category_id', 'sub_category_name'],
+      },
     });
     if (!category) {
       throw new HttpException(

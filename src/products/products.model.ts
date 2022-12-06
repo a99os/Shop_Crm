@@ -28,7 +28,6 @@ export class Products extends Model<Products, ProductsCreateAttr> {
   @ForeignKey(() => SubCategory)
   @Column({
     type: DataType.INTEGER,
-    allowNull: false,
   })
   sub_category_id: number;
 

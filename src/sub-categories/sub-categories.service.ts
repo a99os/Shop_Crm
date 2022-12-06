@@ -21,7 +21,7 @@ export class SubCategoriesService {
       throw new HttpException(
         'Bunday id da category mavjud emas',
         HttpStatus.NOT_FOUND,
-      );
+      ); //category_id category_id
     }
 
     const sub_category = await this.subCategoryRepository.findOne({
@@ -33,7 +33,7 @@ export class SubCategoriesService {
         HttpStatus.FORBIDDEN,
       );
     }
-    return await this.subCategoryRepository.create(CreateSubCategoryDto);
+    return await this.subCategoryRepository.create(createSubCategoryDto);
   }
 
   async getAll() {
@@ -66,7 +66,8 @@ export class SubCategoriesService {
     const candidate = await this.subCategoryRepository.findOne({
       where: { sub_category_name: updateSubCategoryDto.sub_category_name },
     });
-    if (candidate && id != candidate.id) {
+
+    if (candidate && id != candidate.sub_category_id) {
       throw new HttpException(
         'Bunday sub-category mavjud',
         HttpStatus.FORBIDDEN,
