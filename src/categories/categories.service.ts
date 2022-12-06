@@ -11,7 +11,7 @@ export class CategoriesService {
 
   async create(createCategoryDto: CreateCategoryDto) {
     const category = await this.categoryRepository.findOne({
-      where: { category_name: createCategoryDto.catgerory_name },
+      where: { category_name: createCategoryDto.category_name },
     });
     if (category) {
       throw new HttpException('Bunday category mavjud', HttpStatus.FORBIDDEN);
@@ -39,7 +39,7 @@ export class CategoriesService {
 
   async update(id: number, createCategoryDto: CreateCategoryDto) {
     const candidate = await this.categoryRepository.findOne({
-      where: { category_name: createCategoryDto.catgerory_name },
+      where: { category_name: createCategoryDto.category_name },
     });
     if (candidate && id != candidate.id) {
       throw new HttpException('Bunday category mavjud', HttpStatus.FORBIDDEN);
@@ -52,7 +52,7 @@ export class CategoriesService {
         HttpStatus.NOT_FOUND,
       );
     }
-    category.category_name = createCategoryDto.catgerory_name;
+    category.category_name = createCategoryDto.category_name;
     await category.save();
     return category;
   }
