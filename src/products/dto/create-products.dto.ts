@@ -3,7 +3,7 @@ import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 export class CreateProductsDto {
   @IsNumber()
   @IsNotEmpty()
-  readonly sub_category_id: string;
+  readonly sub_category_id: number;
   @IsString()
   @IsNotEmpty()
   readonly model: string;
@@ -15,5 +15,5 @@ export class CreateProductsDto {
   readonly color: string;
   @IsString()
   @IsNotEmpty()
-  readonly price: string;
+  readonly price: number;
 }
