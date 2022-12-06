@@ -1,6 +1,6 @@
 import { IsOptional, IsNumber, IsString } from 'class-validator';
 
-export class CreateCommentDto {
+export class UpdateProductsDto {
   @IsOptional()
   @IsNumber()
   readonly sub_category_id: string;

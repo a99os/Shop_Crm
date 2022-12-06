@@ -1,6 +1,6 @@
 import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
-export class CreateCommentDto {
+export class CreateSubCategoryDto {
   @IsNumber()
   @IsNotEmpty()
   readonly category_id: string;
