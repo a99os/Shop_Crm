@@ -14,6 +14,6 @@ export class UpdateProductsDto {
   @IsString()
   readonly color: string;
   @IsOptional()
-  @IsString()
+  @IsNumber()
   readonly price: number;
 }

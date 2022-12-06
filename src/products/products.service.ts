@@ -131,7 +131,9 @@ export class ProductsService {
   }
 
   async getOne(id: number) {
-    const product = await this.productsRepository.findByPk(id);
+    const product = await this.productsRepository.findByPk(id, {
+      include: { all: true },
+    });
     if (!product) {
       throw new HttpException(
         "Bunday id da product yo'q",

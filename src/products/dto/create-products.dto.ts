@@ -13,7 +13,7 @@ export class CreateProductsDto {
   @IsString()
   @IsNotEmpty()
   readonly color: string;
-  @IsString()
+  @IsNumber()
   @IsNotEmpty()
   readonly price: number;
 }
