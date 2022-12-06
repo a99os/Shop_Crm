@@ -1,5 +1,6 @@
 import { ValidationPipe } from '@nestjs/common';
 import { HttpAdapterHost, NestFactory } from '@nestjs/core';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { AllExceptionsFilter } from './errors/AllExeption';
 
@@ -12,6 +13,7 @@ async function start() {
   const adapterHost = app.get(HttpAdapterHost);
 
   app.useGlobalFilters(new AllExceptionsFilter(adapterHost));
+
   await app.listen(PORT, () => {
     console.log('Listen app port-->>' + PORT);
   });
