@@ -1,4 +1,5 @@
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import { Column, DataType, HasMany, Model, Table } from 'sequelize-typescript';
+import { SubCategory } from '../sub-categories/sub-category.model';
 
 interface CategoryCreateAttr {
   category_name: string;
@@ -19,4 +20,7 @@ export class Categories extends Model<Categories, CategoryCreateAttr> {
     allowNull: false,
   })
   category_name: string;
+
+  @HasMany(() => SubCategory)
+  subCategories: SubCategory[];
 }
