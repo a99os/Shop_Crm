@@ -57,5 +57,15 @@ export class CategoriesService {
     return category;
   }
 
-  async delete(id:number)
+  async delete(id: number) {
+    const category = await this.categoryRepository.findByPk(id);
+    if (!category) {
+      throw new HttpException(
+        'Bunday category topilmadi',
+        HttpStatus.NOT_FOUND,
+      );
+    }
+    await this.categoryRepository.destroy({ where: { id } });
+    return category;
+  }
 }
